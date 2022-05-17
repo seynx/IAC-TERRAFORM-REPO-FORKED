@@ -27,6 +27,7 @@ resource "aws_subnet" "private_subnet" {
 resource "aws_instance" "web" {
   ami           = "ami-0022f774911c1d690"
   instance_type = "t3.micro"
+  subnet_id = aws_subnet.public_subnet.id
   
   tags = {
     Name = "Demo"
